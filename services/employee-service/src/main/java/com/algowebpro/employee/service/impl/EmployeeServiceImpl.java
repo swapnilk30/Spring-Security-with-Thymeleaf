@@ -36,4 +36,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employees.stream().map(employee -> modelMapper.map(employee,EmployeeDto
                 .class)).collect(Collectors.toList());
     }
+
+
+    private EmployeeDto convertToDto(Employee employee) {
+        return modelMapper.map(employee, EmployeeDto.class);
+    }
+
+    private Employee convertToEntity(EmployeeDto employeeDto) {
+        return modelMapper.map(employeeDto, Employee.class);
+    }
 }
